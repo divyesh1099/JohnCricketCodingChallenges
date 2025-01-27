@@ -1,0 +1,39 @@
+#!/d/Divyesh/JohnCricketCodingChallenges/wcTool/.venv/Scripts/python
+import os
+user_input = input()
+# Now try to understand what command is going to be executed. 
+
+# Step1: Split the input on the basis of space
+input_peices = user_input.split()
+
+# Now check for the keywork ccwc (Required)
+
+i=0
+while input_peices[i]!="ccwc":
+    i+= 1
+
+input_text = " ".join(input_peices[:i])
+
+# Mow check for flags i.e -c, -l, -w, -m (Optional)
+for j in range(i, len(input_peices)):
+    if input_peices[j][0] == "-":
+        if input_peices[j][1]=="c":
+            pass
+        elif input_peices[j][1]=="l":
+            pass
+        elif input_peices[j][1]=="w":
+            pass
+        elif input_peices[j][1]=="m":
+            pass
+    
+    # Now check for file name (optional)
+    if os.path(input_peices[j]):
+        if len(input_text) != 0:
+            raise Exception("Text and File both cannot be provided.")
+        else:
+            file = open(input_peices[j], "r")
+            input_text = file.read()
+            
+
+class CustomFileOperations:
+    pass
